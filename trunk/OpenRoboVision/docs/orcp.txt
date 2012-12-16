@@ -1,0 +1,118 @@
+ORCP - ORV Communication Protocol
+
+v.0.1.0
+
+ORCP is Point-to-Point protocol for interaction with Arduino/CraftDuino.
+
+1. Message format
+
+byte   Name     Description 
+---------------------------------------
+0      IR       identity of receiver*
+1      IT       identity of transmitter
+2      SC       System Code**
+3      SS       SubSystem Code
+...
+       XOR      Checksum***
+       FB       Flag byte****
+
+
+* Identity is used for addressing messages to correspond recipient. 
+Identity 0x00 and 0xFF are statically assigned and may not be used to any device.
+0x00 - broadcast message,
+0xFF - for unasigned devices.
+
+** System/Subsystem code indicates which device/subsystem the message is intended for.
+
+*** Checksum for each message is calculated over all fields of the message 
+except the flag byte (befor byte stuffing****).
+The sum is XOR of all bytes.
+
+**** Flag byte used to indicate end of frame. 
+This byte has a fixed value (0xC0), according to SLIP.
+
+    -=-=-=-=-=-
+
+2. Serial Line Internet Protocol (SLIP)
+
+SLIP define 4 special symbols:
+END, ESC, ESC_END and ESC_ESC:
+
+ symbol     |     value (hexademical)
+-------------------------------------
+ END        |     0xC0
+ ESC        |     0xDB
+ ESC_END    |     0xDC
+ ESC_ESC    |     0xDD
+
+Bytes ESC (0xDB) and END (0xC0) are filtered from data by process of byte stuffling. 
+If ESC (0xDB) or END (0xC0) appears in the data, the ESC symbol (0xDB) is send, 
+followed by ESC_ESC (0xDD) or ESC_END (0xDC), correspondingly.
+I. e. the data byte replaced by two bytes:
+0xDB -> 0xDB 0xDD
+0xC0 -> 0xDB 0xDC
+
+    -=-=-=-=-=-
+
+3. Interaction with Arduino/CraftDuino
+
+IT = 0x01 - Master (PC)
+IR = 0x02 - Arduino/CraftDuino
+
+Arduino Systems (SC):
+CS = 0x01 - base system
+
+Base system (0x01)
+
+SS = 0x01
+pinMode() - Set a digital pin to input or output mode.
+
+Params:
+uint8_t - pin number
+uint8_t - pin mode
+Return:
+ASC
+
+SS = 0x02
+digitalRead() - Returns the last known value read from the digital pin: HIGH or LOW.
+
+Params:
+uint8_t - pin number
+Return:
+uint8_t - pin number
+uint8_t - 0x00 (LOW) or 0x01 (HIGH)
+
+SS = 0x03
+analogRead() - Returns the last known value read from the analog pin: 0 (0 volts) to 1023 (5 volts).
+
+Params:
+uint8_t - pin number
+Return:
+uint8_t - pin number
+uint8_t - MSB 
+uint8_t - LSB
+
+SS = 0x04
+digitalWrite() - Write to a digital pin (the pin must have been put into output mode with pinMode()).
+
+Params:
+uint8_t - pin number
+uint8_t - value
+Return:
+ASC
+	
+SS = 0x05
+analogWrite() - Write an analog value (PWM-wave) to a digital pin.
+Params:
+uint8_t - pin number
+uint8_t - value MSB
+uint8_t - value LSB
+Return:
+ASC
+
+SS = 0x06
+ - send string
+Params:
+....
+Return:
+ASC

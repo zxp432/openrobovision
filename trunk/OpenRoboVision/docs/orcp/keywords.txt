@@ -1,0 +1,43 @@
+#######################################
+# Syntax Coloring Map For ORCP
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ORCP	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+available	KEYWORD2
+processInput	KEYWORD2
+sendAnalog	KEYWORD2
+sendDigital	KEYWORD2
+attach	KEYWORD2
+detach	KEYWORD2
+sendPacket	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+CP_MAX_DATA_BYTES	LITERAL1
+
+CP_PACKET_HEADER_LENGTH	LITERAL1
+CP_PACKET_CRC_LENGTH	LITERAL1
+CP_MIN_LENGTH	LITERAL1
+CP_DUINO_IT	LITERAL1
+CP_DUINO_IR	LITERAL1
+CP_DUINO_BS	LITERAL1
+CP_DUINO_PINMODE	LITERAL1
+CP_DUINO_DIGITALREAD	LITERAL1
+CP_DUINO_ANALOGREAD	LITERAL1
+CP_DUINO_DIGITALWRITE	LITERAL1
+CP_DUINO_ANALOGWRITE	LITERAL1
+CP_DUINO_SENDSTRING	LITERAL1
+
