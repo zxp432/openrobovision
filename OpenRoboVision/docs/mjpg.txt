@@ -1,0 +1,16 @@
+
+# запуск
+export LD_LIBRARY_PATH=.
+./mjpg_streamer -i "input_testpicture.so" -o "output_http.so -p 8080"
+
+# тестовый запуск одной командой
+cd /usr/src/mjpg-streamer-r63/ && export LD_LIBRARY_PATH=. && ./mjpg_streamer -i "input_testpicture.so" -o "output_http.so -p 8080"
+
+# просмотр тестовой картинки в браузере
+http://127.0.0.1:8080/?action=snapshot
+http://127.0.0.1:8080/?action=stream
+
+
+
+
+

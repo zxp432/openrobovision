@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "monocular_visual_odometry", "monocular_visual_odometry.vcproj", "{5168A4D7-0E53-482D-A521-45FB3669D489}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenRoboVision", "..\..\OpenRoboVision.vcproj", "{B055E822-7D1E-44A3-9F9C-2824B91C77D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5168A4D7-0E53-482D-A521-45FB3669D489}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5168A4D7-0E53-482D-A521-45FB3669D489}.Debug|Win32.Build.0 = Debug|Win32
+		{5168A4D7-0E53-482D-A521-45FB3669D489}.Release|Win32.ActiveCfg = Release|Win32
+		{5168A4D7-0E53-482D-A521-45FB3669D489}.Release|Win32.Build.0 = Release|Win32
+		{B055E822-7D1E-44A3-9F9C-2824B91C77D5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B055E822-7D1E-44A3-9F9C-2824B91C77D5}.Debug|Win32.Build.0 = Debug|Win32
+		{B055E822-7D1E-44A3-9F9C-2824B91C77D5}.Release|Win32.ActiveCfg = Release|Win32
+		{B055E822-7D1E-44A3-9F9C-2824B91C77D5}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+//
+// list of projects
+//
+// robocraft.ru
+//
+
+OpenRoboVision - ORV-library (set of C++ objects and functions)
+WebCamBot - project based on ORV-library - simple web-cam-bot track on laser pointer.
